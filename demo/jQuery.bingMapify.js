@@ -1,4 +1,4 @@
-/* Fix jsHint failures and naming convention issues*/
+﻿/* Fix jsHint failures and naming convention issues*/
 /*global $:false */
 /*global Microsoft:false */
 var XmlHttpRequest = XMLHttpRequest;

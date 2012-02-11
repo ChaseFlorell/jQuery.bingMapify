@@ -4,21 +4,19 @@
         <title></title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-        <script src="../jQuery.bingMapify.min.js" type="text/javascript"></script>
+        <script src="jQuery.bingMapify.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="bingMap"></div>
         <script>
+            var mt = $.mapType;
+            
             $('#bingMap').bingMapify({
-                mapPins: [
-                    {
-                        lat: '38.000',
-                        lon: '-96.000'
-                    }, {
-                        Lat: '38.685509760012',
-                        Lon: '-96.50390625'
-                    }]
+                mapTypeId: mapType.birdseye,
+                showLogo: false,
+                mapPins: '/mapPins.json'
             });
+            
         </script>
     </body>
 </html>
