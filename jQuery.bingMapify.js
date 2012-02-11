@@ -80,17 +80,17 @@ var mapType = {
             map;
 
 
-        function addPinPoint(lat, lon, title, location, address, pinNumber) {
+        function addPinPoint(mapPin, pinNumber) {
             // kinda silly, but Bing requires us to pass in an object with a 'text' property.
             var badge = { text: pinNumber.toString() };
 
-            var pushpin = new msMaps.Pushpin(new Microsoft.Maps.Location(lat, lon), badge);
+            var pushpin = new msMaps.Pushpin(new Microsoft.Maps.Location(mapPin.lat, mapPin.lon), badge);
 
             //extend the pushpin class to store information for popup
             msMaps.Pushpin.prototype.title = null;
-            pushpin.title = title;
+            pushpin.title = mapPin.title;
             msMaps.Pushpin.prototype.description = null;
-            pushpin.description = format(settings.infoBoxString, settings.mapPins);
+            pushpin.description = format(settings.infoBoxString, mapPin);
 
             // add the pushpin to the map
             map.entities.push(pushpin);
@@ -150,13 +150,7 @@ var mapType = {
 
                 // The locations array can only have the lat and lon portion of the mapPin object.
                 locations[i++] = new Microsoft.Maps.Location(this.lat, this.lon);
-                addPinPoint(
-                        this.lat,
-                        this.lon,
-                        this.title,
-                        this.location,
-                        this.address,
-                        i);
+                addPinPoint(this,i);
             });
 
             // Bing Maps as the ability to take an array of locations
