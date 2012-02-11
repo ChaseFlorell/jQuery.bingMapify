@@ -1,22 +1,50 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-        <script src="jQuery.bingMapify.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div id="bingMap"></div>
-        <script>
-            var mt = $.mapType;
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+    <script src="jQuery.bingMapify.js" type="text/javascript"></script>
+    <style>
+        .infoBox
+        {
+            width: 300px;
+            height: 150px;
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+            color: #777;
+            border-radius: 5px;
+            z-index: 10000;
+        }
+        
+        .infoBox h1
+        {
+            font-size: 1.1em;
+            color: #000;
+        }
+        
+        #bingMap
+        {
+            position: relative;
+            width: 700px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bingMap">
+    </div>
+    <script>
+        $('#bingMap').bingMapify({
+            mapTypeId: mapType.road,
+            showLogo: false,
+            mapPins: '/mapPins.json',
+            infobox: {
+                formatHtmlContent: '<div class="infoBox"><h1>{title}</h1><hr>{location}<br>{address}</div>'
+            }
+        });
             
-            $('#bingMap').bingMapify({
-                mapTypeId: mapType.birdseye,
-                showLogo: false,
-                mapPins: '/mapPins.json'
-            });
-            
-        </script>
-    </body>
+    </script>
+</body>
 </html>
