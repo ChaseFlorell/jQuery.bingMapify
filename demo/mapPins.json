@@ -5,12 +5,5 @@
 		"title" : "my cool event",
 		"location" : "some venue",
 		"address" : "1234 Great St."
-    },
-    { 
-        "Lat" : "38.685509760012",
-        "Lon" : "-96.50390625",
-		"Title" : "another cool place",
-		"Location" : "a different venue",
-		"Address" : "5678 Amazing St."
     }
 ]

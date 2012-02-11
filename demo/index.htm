@@ -2,10 +2,20 @@
 <html>
 <head>
     <title></title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+
+
+</head>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>jQuery.ProfanityFilter Demo</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&developer=1"></script>
     <script src="jQuery.bingMapify.js" type="text/javascript"></script>
-    <style>
+    <script type="text/javascript" src="http://cdn.bitbucket.org/shekharpro/google_code_prettify/downloads/prettify.js"></script>
+    
+    <link href="styles.css" type="text/css" rel="stylesheet"/>     <style>
         .infoBox
         {
             width: 300px;
@@ -24,27 +34,137 @@
             color: #000;
         }
         
-        #bingMap
+        .infoBox2
+        {
+            width: 300px;
+            height: 150px;
+            background-color: white;
+            border: 1px solid Green;
+            padding: 10px;
+            color: Blue;
+            border-radius: 5px;
+            z-index: 10000;
+        }
+        
+        .infoBox2 h1
+        {
+            font-size: 1.1em;
+            color: Orange;
+        }
+        
+        .map
         {
             position: relative;
-            width: 700px;
-            height: 500px;
+            width: 400px;
+            height: 200px;
+            overflow: auto;
         }
     </style>
 </head>
-<body>
-    <div id="bingMap">
+<body onload="prettyPrint()">
+<div id="wrapper">
+    <header>
+        <h1>jQuery.bingMapify</h1>
+
+        <h2>a jquery library for bing maps v7</h2>
+    </header>
+
+    <section>
+<pre class="prettyprint code box">
+// code:
+$('#one').bingMapify({
+    mapPins: '/mapPins.json'
+});
+</pre>
+        <div class="description-example-wrapper">
+            <div class="description box">
+                Use a json file to feed the pin points to the map
+            </div>
+            <div id="one" class="example box map"></div>
+            <script>
+                $('#one').bingMapify({
+                    mapPins: '/mapPins.json'
+                });
+            </script>
+        </div>
+    </section>
+    
+    
+    
+
+    <section>
+<pre class="prettyprint code box">
+// code:
+$('#two').bingMapify({
+    mapPins: [
+        { lat: &quot;38.000&quot;, lon: &quot;-96.000&quot;, title: &quot;my cool event&quot;, location: &quot;some venue&quot;, address: &quot;1234 Great St.&quot; },
+        { Lat: &quot;38.685509760012&quot;, Lon: &quot;-96.50390625&quot;, Title: &quot;another cool place&quot;, Location: &quot;a different venue&quot;, Address: &quot;5678 Amazing St.&quot; }
+    ]
+});</pre>
+        <div class="description-example-wrapper">
+            <div class="description box">
+                Set the mapPins inline in your script<br/>
+                <i>you can capitalize the first character, or not. Just be consistent</i>
+            </div>
+            <div id="two" class="example box map"></div>
+            <script>
+                $('#two').bingMapify({
+                    mapPins: [
+                        { lat: "38.000", lon: "-96.000", title: "my cool event", location: "some venue", address: "1234 Great St." },
+                        { Lat: "38.685509760012", Lon: "-96.50390625", Title: "another cool place", Location: "a different venue", Address: "5678 Amazing St." }
+                    ]
+                });
+            </script>
+        </div>
+    </section>
+    
+    
+    <section>
+<pre class="prettyprint code box">
+// code:
+$('#three').bingMapify({
+    mapPins: '/mapPins.json',
+    infobox: {
+        formatHtmlContent: '&lt;div class=&quot;infoBox2&quot;&gt;&lt;h3&gt;{title}&lt;/h3&gt;&lt;hr&gt;{location}&lt;br&gt;{address}&lt;hr&gt;{lat} | {lon}&lt;/div&gt;'
+        visibleOnLoad: true
+    }
+});</pre>
+        <div class="description-example-wrapper">
+            <div class="description box">
+                Customize the look of your infoBox
+            </div>
+            <div id="three" class="example box map"></div>
+            <script>
+                $('#three').bingMapify({
+                    mapPins: '/mapPins.json',
+                    infoBox: {
+                        formatHtmlContent: '<div class="infoBox2"><h3>{title}</h3><hr>{location}<br>{address}<hr>{lat} | {lon}</div>',
+                        visibleOnLoad: true
+                    }
+                });
+            </script>
+        </div>
+    </section>
+    
+    
+
+
+    <footer class="box">
+        <p>Like what you see?<br>
+            <b>Download:</b> <a href="https://github.com/ChaseFlorell/jQuery.bingMapify">on GitHub</a></p>
+
+        <p>Find a bug?<br>
+            <b>Issues:</b> <a href="https://github.com/ChaseFlorell/jQuery.bingMapify/issues">Issue tracker</a></p>
+
+        <p>Who's the author?<br>
+            <b>GitHub:</b> <a href="http://github.com/ChaseFlorell">Chase Florell</a><br>
+            <b>Twitter:</b> <a href="http://twitter.com/ChaseFlorell">@ChaseFlorell</a></p>
+    </footer>
+    <div class="github">
+        <a href="https://github.com/ChaseFlorell/jQuery.bingMapify"><img
+                src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"/></a>
     </div>
-    <script>
-        $('#bingMap').bingMapify({
-            mapTypeId: mapType.road,
-            showLogo: false,
-            mapPins: '/mapPins.json',
-            infobox: {
-                formatHtmlContent: '<div class="infoBox"><h1>{title}</h1><hr>{location}<br>{address}</div>'
-            }
-        });
-            
-    </script>
+
+</div>
 </body>
 </html>
