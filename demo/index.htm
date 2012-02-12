@@ -1,21 +1,14 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-
-
-</head>
-
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
     <title>jQuery.ProfanityFilter Demo</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&developer=1"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
     <script src="jQuery.bingMapify.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://cdn.bitbucket.org/shekharpro/google_code_prettify/downloads/prettify.js"></script>
     
-    <link href="styles.css" type="text/css" rel="stylesheet"/>     <style>
+    <link href="styles.css" type="text/css" rel="stylesheet"/>     
+    <style>
         .infoBox
         {
             width: 300px;
@@ -68,11 +61,16 @@
 
         <h2>a jquery library for bing maps v7</h2>
     </header>
+    
+    
+    
+    
 
     <section>
 <pre class="prettyprint code box">
 // code:
 $('#one').bingMapify({
+    bingMapCredentials: '[your developer credentials]',
     mapPins: '/mapPins.json'
 });
 </pre>
@@ -83,6 +81,7 @@ $('#one').bingMapify({
             <div id="one" class="example box map"></div>
             <script>
                 $('#one').bingMapify({
+                    bingMapCredentials: '[your developer credentials]',
                     mapPins: '/mapPins.json'
                 });
             </script>
@@ -96,6 +95,7 @@ $('#one').bingMapify({
 <pre class="prettyprint code box">
 // code:
 $('#two').bingMapify({
+    bingMapCredentials: '[your developer credentials]',
     mapPins: [
         { lat: &quot;38.000&quot;, lon: &quot;-96.000&quot;, title: &quot;my cool event&quot;, location: &quot;some venue&quot;, address: &quot;1234 Great St.&quot; },
         { Lat: &quot;38.685509760012&quot;, Lon: &quot;-96.50390625&quot;, Title: &quot;another cool place&quot;, Location: &quot;a different venue&quot;, Address: &quot;5678 Amazing St.&quot; }
@@ -109,6 +109,7 @@ $('#two').bingMapify({
             <div id="two" class="example box map"></div>
             <script>
                 $('#two').bingMapify({
+                    bingMapCredentials: '[your developer credentials]',
                     mapPins: [
                         { lat: "38.000", lon: "-96.000", title: "my cool event", location: "some venue", address: "1234 Great St." },
                         { Lat: "38.685509760012", Lon: "-96.50390625", Title: "another cool place", Location: "a different venue", Address: "5678 Amazing St." }
@@ -119,12 +120,15 @@ $('#two').bingMapify({
     </section>
     
     
+
+    
     <section>
 <pre class="prettyprint code box">
 // code:
 $('#three').bingMapify({
+    bingMapCredentials: '[your developer credentials]',
     mapPins: '/mapPins.json',
-    infobox: {
+    infoBox: {
         formatHtmlContent: '&lt;div class=&quot;infoBox2&quot;&gt;&lt;h3&gt;{title}&lt;/h3&gt;&lt;hr&gt;{location}&lt;br&gt;{address}&lt;hr&gt;{lat} | {lon}&lt;/div&gt;'
         visibleOnLoad: true
     }
@@ -136,6 +140,7 @@ $('#three').bingMapify({
             <div id="three" class="example box map"></div>
             <script>
                 $('#three').bingMapify({
+                    bingMapCredentials: '[your developer credentials]',
                     mapPins: '/mapPins.json',
                     infoBox: {
                         formatHtmlContent: '<div class="infoBox2"><h3>{title}</h3><hr>{location}<br>{address}<hr>{lat} | {lon}</div>',

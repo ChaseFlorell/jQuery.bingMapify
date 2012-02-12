@@ -104,6 +104,10 @@ var mapType = {
         var settings = $.extend({ }, defaults, config),
             map = null,
             pinInfoBox = null;
+        
+        if(settings.bingMapCredentials === null) {
+            throw new Error('Please supply your bingMapCredentials');
+        }
 
         /// <summary>Add a single map pin to the map</summary>
         /// <param name="mapPin">Map pin information - includes lat, lon, title, address, and location</param>
